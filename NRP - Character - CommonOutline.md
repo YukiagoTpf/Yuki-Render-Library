@@ -3,7 +3,7 @@
 ### 光滑法线生成
 1. 工具生成
 可以存放在VertexColor/UV3/UV4中
-![[Pasted image 20230128210110.png|300]]
+![Alt Text](Textures/Pastedimage20230128210110.png)
 2. 直接写入fbx
 [【Job/Toon Shading Workflow】自动生成硬表面模型Outline Normal](https://zhuanlan.zhihu.com/p/107664564)
 我在原文的代码基础上修改了一部分，写入了模型的UV2中（因为大部分卡渲都是没有使用UV2，而部分使用了顶点色，保留顶点色的数据比较有必要）
