@@ -1,7 +1,7 @@
 ## 最终效果
 整体渲染比较简单，美术为主
 ![Alt Text](Textures/1713091508286.jpg)
-![Alt Text](Textures/Pastedimage20240414184636.png)
+![Alt Text](20240414184636.png)
 ## 贴图分析
 
 - BaseMap：基础色；

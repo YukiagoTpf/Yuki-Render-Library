@@ -4,7 +4,7 @@
 1. 工具生成
 可以存放在VertexColor/UV3/UV4中
 
-![Alt Text](Textures/Pastedimage20230128210110.png)
+![Alt Text](20230128210110.png)
 
 2. 直接写入fbx
 

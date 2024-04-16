@@ -9,6 +9,6 @@
 #### Guilty Gear Strive
 总结：比较经典的卡通渲染，美术功底 > 渲染算法
 
-[[NPR - Character - GGS]]
+[[NPR - Character - GGS逆向]]
 
 
