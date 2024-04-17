@@ -4,11 +4,16 @@
 ## Character 
 ### 通用效果
 #### Outline
+
 [[NRP - Character - CommonOutline]]
+
 ### 逆向
 #### Guilty Gear Strive
 总结：比较经典的卡通渲染，美术功底 > 渲染算法
 
 [[NPR - Character - GGS逆向]]
 
+#### GBF vs
+总结：和GGS大差不差
 
+[[NPR - Character - GBFvs逆向]]
