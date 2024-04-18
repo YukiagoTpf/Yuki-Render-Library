@@ -1,4 +1,4 @@
-# Yuki NPR Library
+# Yuki Render Library
 ## 写在前面
 学习记录一些通用、复杂、有趣的效果制作过程，部分开源，部分只放出关键代码
 ## Character 
