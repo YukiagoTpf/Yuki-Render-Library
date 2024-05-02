@@ -33,27 +33,51 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "PostProcessing/PostProcessing - Bloom.md",
+                "file": "Common/Common - SpecularTint.md",
                 "mode": "source",
                 "source": true
               }
             }
-          }
-        ],
-        "currentTab": 2
-      },
-      {
-        "id": "8d3dd66e54a77957",
-        "type": "tabs",
-        "children": [
+          },
           {
-            "id": "afd98d1337f3ba4c",
+            "id": "030dea53c55eb7b6",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "PostProcessing/PostProcessing - Bloom.md",
+                "file": "基础知识/Gamma与线性、HDR与LDR、Tonemapping.md",
                 "mode": "source",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "a812ce3a376031a5",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Physically-Based Rendering 相关知识.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 4
+      },
+      {
+        "id": "9b9fc14eecc6ab16",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "8157588aa2658773",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "基础知识/Gamma与线性、HDR与LDR、Tonemapping.md",
+                "mode": "preview",
                 "source": false
               }
             }
@@ -124,7 +148,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "PostProcessing/PostProcessing - Bloom.md",
+                "file": "Physically-Based Rendering 相关知识.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -141,7 +165,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "PostProcessing/PostProcessing - Bloom.md",
+                "file": "Physically-Based Rendering 相关知识.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -164,7 +188,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "PostProcessing/PostProcessing - Bloom.md"
+                "file": "Physically-Based Rendering 相关知识.md"
               }
             }
           }
@@ -185,11 +209,17 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "82aa5f19b5101f1e",
+  "active": "a812ce3a376031a5",
   "lastOpenFiles": [
+    "基础知识/Gamma与线性、HDR与LDR、Tonemapping.md",
+    "Physically-Based Rendering 相关知识.md",
+    "基础知识",
+    "PostProcessing/PostProcessing - Bloom.md",
+    "Basic",
+    "Common/Common - SpecularTint.md",
+    "Common/Common - CapsuleAO.md",
     "PostProcessing/PostProcessing - SNN Filter.md",
     "Textures/20240501230853.png",
-    "PostProcessing/PostProcessing - Bloom.md",
     "NPR/NPR - Character - GBFvs.md",
     "NPR/NPR - Character - GGS.md",
     "NPR/NRP - Character - CommonOutline.md",
