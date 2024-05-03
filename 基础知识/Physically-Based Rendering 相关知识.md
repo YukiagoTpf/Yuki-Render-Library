@@ -63,7 +63,7 @@ $L=\frac{d^2\Phi} {dA * dA * dw * cos\theta }=\frac {d^2\Phi_0*cos\theta} {dA*dw
 
 渲染方程就是对上述过程的抽象，来看式子：
 
-$L_0(x,w)=L_e(x,w)+\int{\Omega}f_r(x,w,w_i)L_i(x,w_i)\cos(w_i,n)dw_i$ 
+$L_0(x,w)=L_e(x,w)+\int{\Omega}f_r(x,w,w_i)L_i(x,w_i)cos(w_i,n)dw_i$ 
 
 $L_0(x,w)$代表坐标x处发射到观察方向v所对应的单位立体角 𝜔 的Radiance，即最终被我们看到的颜色。
 
@@ -71,11 +71,11 @@ $L_e(x,w)$ 代表坐标x处自发光（Emission）的出射Radiance，不过很
 
 剩下的式子又叫**反射率方程**，表示了物体表面的入射Irradiance和出射Radiance之间的关系。
 
-$L_0(x,w)=\int{\Omega}f_r(x,w,w_i)L_i(x,w_i)\cos(w_i,n)dw_i$
+$L_0(x,w)=\int{\Omega}f_r(x,w,w_i)L_i(x,w_i)cos(w_i,n)dw_i$
 
 其中：
 
-$L_i(x,w_i)$ 是从 𝜔𝑖方向入射的Radiance， $\cos (w_i,n)$ 是入射方向与法线方向的夹角。
+$L_i(x,w_i)$ 是从 𝜔𝑖方向入射的Radiance， $cos (w_i,n)$ 是入射方向与法线方向的夹角。
 
 剩下的 𝑓𝑟(𝑥,𝜔,𝜔𝑖) 这一项，全名叫**双向反射分布函数（Bidirectional Reflectance Distribution Function，BRDF）。**BRDF是对一类函数的统称，Lambert、Phong、Blinn-Phong等模型都有自己的BRDF。
 
@@ -106,7 +106,7 @@ BRDF既有物理的也有非物理的，PBR既然基于物理，那肯定要使�
 
 Cook-Torrance BRDF同时包含漫反射与镜面反射，由于基于物理的BRDF都是线性的，我们可以将反射率方程拆成互相独立两部分，分别求解：
 
-$\int  {\Omega}({f}_{diffuse}(x,w,w_{i)}+ f_{specular}(x,w,w_i))L_i(x,w_i)\cos {(w_i,n)}dw_i$
+$\int  {\Omega}({f}_{diffuse}(x,w,w_{i)}+ f_{specular}(x,w,w_i))L_i(x,w_i)cos {(w_i,n)}dw_i$
 我们先来看看镜面反射部分。
 
 ### 微平面模型与镜面反射
@@ -118,7 +118,7 @@ $\int  {\Omega}({f}_{diffuse}(x,w,w_{i)}+ f_{specular}(x,w,w_i))L_i(x,w_i)\cos {
 由于我们在渲染中，操作的最小单位是像素，因此，人们定义了一个**粗糙度（Roughness）**的概念，用来表示一个像素再往下的微观层面上，镜面排列的整齐程度。粗糙度是一个0~1的float值，粗糙度越高，代表该像素的出射光线越发散，看上去越像漫反射，反之，则代表出射光线越集中于法线-反射方向附近，看上去越像理想镜面反射。
 Cook-Torrance BRDF的镜面反射部分长这样：
 
-$f_{specular} = \frac{DFG} {4\cos(w,n)\cos(w_i,n)}$
+$f_{specular} = \frac{DFG} {4cos(w,n)cos(w_i,n)}$
 
 **法线分布函数D：**像素所包含的微小镜面中有百分之多少法线与像素法线一致，粗糙度越高，这个一致性就会越低，D值越小。
 
@@ -130,15 +130,15 @@ $f_{specular} = \frac{DFG} {4\cos(w,n)\cos(w_i,n)}$
 
 菲涅尔方程本身是比较复杂的，大家平时使用的通常是Fresnel-Schlick的近似方程：
 
-$F_{Schlick} = F_0+(1-F_0)(1-\cos(h,v))^5$
+$F_{Schlick} = F_0+(1-F_0)(1-cos(h,v))^5$
 
 其中h就是我们在Blinn-Phong模型里使用的那个half向量， ℎ=𝑣+𝑙 ，v是观察方向，l是光照方向。这个式子是对的，但他的本来面貌是这样的
 
-$F_{Schlick} = F_0+(F_{90}-F_0)(1-\cos(h,v))^5$
+$F_{Schlick} = F_0+(F_{90}-F_0)(1-cos(h,v))^5$
 
 𝐹0 是材质在光线从法线方向入射时的反射率，可以通过查表得到。 𝐹90 是光线从垂直于法线方向入射时的反射率。我们通常会认为 𝐹90=1 ，不过Disney也有一个更准确的做法：
 
-$F_{90} = 0.5+2*roughness*\cos^2(h,v)$
+$F_{90} = 0.5+2*roughness*cos^2(h,v)$
 
 
 
@@ -148,7 +148,7 @@ $F_{90} = 0.5+2*roughness*\cos^2(h,v)$
 所以漫反射部分所占比例应该是（1-F）
 所以完整的Cook-Torrance BRDF如下
 
-$f_{cook-torrance} = \frac {Albedo}{\pi}(1-F)+\frac {DFG}{4\cos(w,n)\cos(w_i,n)}$
+$f_{cook-torrance} = \frac {Albedo}{\pi}(1-F)+\frac {DFG}{4cos(w,n)cos(w_i,n)}$
 
 ###  金属度
 
@@ -162,4 +162,4 @@ $f_{cook-torrance} = \frac {Albedo}{\pi}(1-F)+\frac {DFG}{4\cos(w,n)\cos(w_i,n)}
 综上所述，我们可以得出最终版的Cook-Torrance BRDF如下：
 
 $F_{0}= lerp(0.04,Albedo,Metallic)$
-𝐹$f_{cook-torrance} = \frac {Albedo}{\pi}(1-F)(1 - Metallic)+\frac {DFG}{4\cos(w,n)\cos(w_i,n)}$
+𝐹$f_{cook-torrance} = \frac {Albedo}{\pi}(1-F)(1 - Metallic)+\frac {DFG}{4cos(w,n)cos(w_i,n)}$
