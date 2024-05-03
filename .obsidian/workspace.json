@@ -57,9 +57,9 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Physically-Based Rendering 相关知识.md",
+                "file": "基础知识/Physically-Based Rendering 相关知识.md",
                 "mode": "source",
-                "source": false
+                "source": true
               }
             }
           }
@@ -67,18 +67,18 @@
         "currentTab": 4
       },
       {
-        "id": "9b9fc14eecc6ab16",
+        "id": "8a0cc06db547aa5b",
         "type": "tabs",
         "children": [
           {
-            "id": "8157588aa2658773",
+            "id": "967679ee50deea32",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "基础知识/Gamma与线性、HDR与LDR、Tonemapping.md",
+                "file": "基础知识/Physically-Based Rendering 相关知识.md",
                 "mode": "preview",
-                "source": false
+                "source": true
               }
             }
           }
@@ -148,7 +148,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Physically-Based Rendering 相关知识.md",
+                "file": "基础知识/Physically-Based Rendering 相关知识.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -165,7 +165,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Physically-Based Rendering 相关知识.md",
+                "file": "基础知识/Physically-Based Rendering 相关知识.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -188,7 +188,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Physically-Based Rendering 相关知识.md"
+                "file": "基础知识/Physically-Based Rendering 相关知识.md"
               }
             }
           }
@@ -212,7 +212,7 @@
   "active": "a812ce3a376031a5",
   "lastOpenFiles": [
     "基础知识/Gamma与线性、HDR与LDR、Tonemapping.md",
-    "Physically-Based Rendering 相关知识.md",
+    "基础知识/Physically-Based Rendering 相关知识.md",
     "基础知识",
     "PostProcessing/PostProcessing - Bloom.md",
     "Basic",
