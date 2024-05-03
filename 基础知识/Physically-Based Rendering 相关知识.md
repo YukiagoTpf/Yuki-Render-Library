@@ -49,7 +49,7 @@ $E=\frac{d\Phi} {dA}=\frac {d{\Phi}_{0}*cos\theta} {dA}$
 
 重点在Radiance的定义式只有一个，我们用 𝑑𝜔 表示单位立体角， 𝐿 表示Radiance，有：
 
-$L=\frac{{d}^{2}\Phi} {dA * dA * dw * cos\theta }=\frac {{d}^{2}{\Phi}_{0}*cos\theta} {dA*dw*cos\theta} =\frac{{d}^{2}{\Phi}_{0}} {dAdw}$
+$L=\frac{d^2\Phi} {dA * dA * dw * cos\theta }=\frac {d^2\Phi_0*cos\theta} {dA*dw*cos\theta} =\frac{d^2\Phi_0} {dAdw}$
 
 注意分母中的 𝑐𝑜𝑠𝜃 ，我们既可以将其理解为 𝑑𝐴𝑐𝑜𝑠𝜃 （单位投影面积），也可以理解为 𝑑𝜔𝑐𝑜𝑠𝜃 （单位投影立体角）
 
@@ -75,7 +75,7 @@ $L_0(x,w)=\int{\Omega}f_r(x,w,w_i)L_i(x,w_i)\cos(w_i,n)dw_i$
 
 其中：
 
-${L}_{i}(x,{w}_{i})$ 是从 𝜔𝑖方向入射的Radiance， $\cos {({w}_{i},n)}$ 是入射方向与法线方向的夹角。
+$L_i(x,w_i)$ 是从 𝜔𝑖方向入射的Radiance， $\cos (w_i,n)$ 是入射方向与法线方向的夹角。
 
 剩下的 𝑓𝑟(𝑥,𝜔,𝜔𝑖) 这一项，全名叫**双向反射分布函数（Bidirectional Reflectance Distribution Function，BRDF）。**BRDF是对一类函数的统称，Lambert、Phong、Blinn-Phong等模型都有自己的BRDF。
 
@@ -83,7 +83,7 @@ ${L}_{i}(x,{w}_{i})$ 是从 𝜔𝑖方向入射的Radiance， $\cos {({w}_{i
 
 BRDF的定义式如下：
 
-${f}_{r}(x,w,{w}_{i}) =\frac {{L}_{0}(x,w)} {L_i(x,w_i)cos(w_i,n)dw_i}$
+$f_r(x,w,w_i) =\frac {L_0(x,w)} {L_i(x,w_i)cos(w_i,n)dw_i}$
 
 其具体定义为，物体表面入射的Irradiance中，来自入射方向 𝜔𝑖 的部分，有多少会贡献到向 𝜔 方向出射的Radiance中。这里需要注意一点，那就是这个式子的分母的物理意义是**Irradiance中由** 𝜔𝑖 **方向Radiance贡献的部分，而不是Radiance。**
 
