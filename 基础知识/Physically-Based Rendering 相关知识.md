@@ -162,4 +162,5 @@ $f_{cook-torrance} = \frac {Albedo}{\pi}(1-F)+\frac {DFG}{4cos(w,n)cos(w_i,n)}$
 综上所述，我们可以得出最终版的Cook-Torrance BRDF如下：
 
 $F_{0}= lerp(0.04,Albedo,Metallic)$
-𝐹$f_{cook-torrance} = \frac {Albedo}{\pi}(1-F)(1 - Metallic)+\frac {DFG}{4cos(w,n)cos(w_i,n)}$
+
+$f_{cook-torrance} = \frac {Albedo}{\pi}(1-F)(1 - Metallic)+\frac {DFG}{4cos(w,n)cos(w_i,n)}$
