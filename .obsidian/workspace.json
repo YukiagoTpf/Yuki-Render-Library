@@ -6,6 +6,7 @@
       {
         "id": "a4094d56aa789ccb",
         "type": "tabs",
+        "dimension": 47.56317689530686,
         "children": [
           {
             "id": "0cbf582ba0d96ade",
@@ -57,7 +58,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "基础知识/Physically-Based Rendering 相关知识.md",
+                "file": "基础知识/Physically-Based Rendering 基础知识.md",
                 "mode": "source",
                 "source": true
               }
@@ -69,6 +70,7 @@
       {
         "id": "8a0cc06db547aa5b",
         "type": "tabs",
+        "dimension": 52.43682310469314,
         "children": [
           {
             "id": "967679ee50deea32",
@@ -76,7 +78,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "基础知识/Physically-Based Rendering 相关知识.md",
+                "file": "基础知识/Physically-Based Rendering 基础知识.md",
                 "mode": "preview",
                 "source": true
               }
@@ -148,7 +150,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "基础知识/Physically-Based Rendering 相关知识.md",
+                "file": "基础知识/Physically-Based Rendering 基础知识.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -165,7 +167,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "基础知识/Physically-Based Rendering 相关知识.md",
+                "file": "基础知识/Physically-Based Rendering 基础知识.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -188,7 +190,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "基础知识/Physically-Based Rendering 相关知识.md"
+                "file": "基础知识/Physically-Based Rendering 基础知识.md"
               }
             }
           }
@@ -211,19 +213,20 @@
   },
   "active": "a812ce3a376031a5",
   "lastOpenFiles": [
+    "NPR/NPR - Character - GBFvs.md",
+    "NPR/NPR - Character - 异度之刃3.md",
+    "基础知识/Physically-Based Rendering 基础知识.md",
     "基础知识/Gamma与线性、HDR与LDR、Tonemapping.md",
-    "基础知识/Physically-Based Rendering 相关知识.md",
+    "Common/Common - SpecularTint.md",
+    "Textures/20240503201830.png",
+    "Common/Common - CapsuleAO.md",
     "基础知识",
     "PostProcessing/PostProcessing - Bloom.md",
     "Basic",
-    "Common/Common - SpecularTint.md",
-    "Common/Common - CapsuleAO.md",
     "PostProcessing/PostProcessing - SNN Filter.md",
     "Textures/20240501230853.png",
-    "NPR/NPR - Character - GBFvs.md",
     "NPR/NPR - Character - GGS.md",
     "NPR/NRP - Character - CommonOutline.md",
-    "NPR/NPR - Character - 异度之刃3.md",
     "NRP - Character - CommonOutline.md",
     "NPR - Character - GGS逆向.md",
     "Textures/20240414184636.png",
@@ -235,7 +238,6 @@
     "README.md",
     "Textures/1713091508286.jpg",
     "Textures/20240416140645.png",
-    "Textures/20240416140626.png",
-    "Pasted image 20240416140626.png"
+    "Textures/20240416140626.png"
   ]
 }
