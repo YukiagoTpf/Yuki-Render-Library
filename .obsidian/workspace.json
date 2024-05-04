@@ -6,7 +6,6 @@
       {
         "id": "a4094d56aa789ccb",
         "type": "tabs",
-        "dimension": 47.56317689530686,
         "children": [
           {
             "id": "0cbf582ba0d96ade",
@@ -63,24 +62,35 @@
                 "source": true
               }
             }
-          }
-        ],
-        "currentTab": 4
-      },
-      {
-        "id": "8a0cc06db547aa5b",
-        "type": "tabs",
-        "dimension": 52.43682310469314,
-        "children": [
+          },
           {
-            "id": "967679ee50deea32",
+            "id": "c8f305c8392fce0d",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "基础知识/Physically-Based Rendering 基础知识.md",
-                "mode": "preview",
+                "file": "NPR/NPR - Character - 异度之刃3.md",
+                "mode": "source",
                 "source": true
+              }
+            }
+          }
+        ],
+        "currentTab": 5
+      },
+      {
+        "id": "97d40a72bc01b5ee",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "185eccd693b65830",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Compute Shader的基础介绍与使用.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
@@ -150,7 +160,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "基础知识/Physically-Based Rendering 基础知识.md",
+                "file": "Compute Shader的基础介绍与使用.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -167,7 +177,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "基础知识/Physically-Based Rendering 基础知识.md",
+                "file": "Compute Shader的基础介绍与使用.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -190,7 +200,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "基础知识/Physically-Based Rendering 基础知识.md"
+                "file": "Compute Shader的基础介绍与使用.md"
               }
             }
           }
@@ -211,11 +221,12 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "a812ce3a376031a5",
+  "active": "185eccd693b65830",
   "lastOpenFiles": [
-    "NPR/NPR - Character - GBFvs.md",
     "NPR/NPR - Character - 异度之刃3.md",
+    "Compute Shader的基础介绍与使用.md",
     "基础知识/Physically-Based Rendering 基础知识.md",
+    "NPR/NPR - Character - GBFvs.md",
     "基础知识/Gamma与线性、HDR与LDR、Tonemapping.md",
     "Common/Common - SpecularTint.md",
     "Textures/20240503201830.png",
