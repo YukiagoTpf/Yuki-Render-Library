@@ -1,0 +1,15 @@
+## multi_compile
+
+带有multi_compile类关键字的Shader，在Build时会把所有可能的关键字排列组合的变体全部生成，由此导致不必要的冗余和包体体积增大；但好处是方便动态选择Shader变体；
+## shader_feature
+
+对shader_feature而言，Unity在Build时，不会将未使用的shader_feature关键字生成的变体 包含入内，只有实际被材质使用到的关键字对应的变体才会被Build和打入包中，从而减少了内存占用，精简了包体体积。
+
+但代价是自己要做额外的工作，举例来说，有些shader_feature关键字对应的变体在Build时没有被材质使用到，但是在运行时可能会通过代码开启。这类变体实际需要使用，却没有被打入包中 ，就会导致理想中的效果无法生成。这时，就需要使用Shader Variant Collection，手动将这些体加入到变体收集器里面。
+## Local Keyword
+
+multi_compile_local
+shader_feature_local
+
+从使用角度来说，不带local的宏，他可以使用Material.EnableKeyword，也可以使用Shader.EnableKeyword，但是如果带了local的宏，他就只能使用Material.EnableKeyword
+

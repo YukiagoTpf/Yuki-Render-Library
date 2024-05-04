@@ -64,31 +64,43 @@
             }
           },
           {
-            "id": "c8f305c8392fce0d",
+            "id": "d72f86a812aaef7e",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "NPR/NPR - Character - 异度之刃3.md",
+                "file": "渲染问题随记.md",
+                "mode": "source",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "80d862306f71cf2d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "基础知识/Shader变体.md",
                 "mode": "source",
                 "source": true
               }
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 6
       },
       {
-        "id": "97d40a72bc01b5ee",
+        "id": "f20f891b520f46d6",
         "type": "tabs",
         "children": [
           {
-            "id": "185eccd693b65830",
+            "id": "c14293ad8b07c3d1",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Compute Shader的基础介绍与使用.md",
+                "file": "基础知识/Shader变体.md",
                 "mode": "source",
                 "source": false
               }
@@ -160,7 +172,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Compute Shader的基础介绍与使用.md",
+                "file": "基础知识/Shader变体.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -177,7 +189,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Compute Shader的基础介绍与使用.md",
+                "file": "基础知识/Shader变体.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -200,7 +212,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Compute Shader的基础介绍与使用.md"
+                "file": "基础知识/Shader变体.md"
               }
             }
           }
@@ -221,10 +233,14 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "185eccd693b65830",
+  "active": "80d862306f71cf2d",
   "lastOpenFiles": [
+    "渲染问题随记.md",
+    "基础知识/Shader变体.md",
+    "README.md",
+    "基础知识/Compute Shader的基础介绍与使用.md",
+    "未命名",
     "NPR/NPR - Character - 异度之刃3.md",
-    "Compute Shader的基础介绍与使用.md",
     "基础知识/Physically-Based Rendering 基础知识.md",
     "NPR/NPR - Character - GBFvs.md",
     "基础知识/Gamma与线性、HDR与LDR、Tonemapping.md",
@@ -246,7 +262,6 @@
     "Textures/20240416145416.png",
     "Pasted image 20240416145416.png",
     "20240416145416.png",
-    "README.md",
     "Textures/1713091508286.jpg",
     "Textures/20240416140645.png",
     "Textures/20240416140626.png"
