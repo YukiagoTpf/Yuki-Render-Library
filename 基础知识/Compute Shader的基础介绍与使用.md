@@ -4,7 +4,6 @@
 
 > Compute shaders are shader programs that run on the GPU, outside of the normal rendering pipeline.
 > They can be used for massively parallel GPGPU algorithms, or to accelerate parts of game rendering. In order to efficiently use them, an in-depth knowledge of GPU architectures and parallel algorithms is often needed; as well as knowledge of [DirectCompute](http://msdn.microsoft.com/en-us/library/windows/desktop/ff476331.aspx), [OpenGL Compute](https://www.khronos.org/opengl/wiki/Compute_Shader), [CUDA](http://en.wikipedia.org/wiki/CUDA), or [OpenCL](http://en.wikipedia.org/wiki/OpenCL).
-
 ## 理解Compute Shader
 
 从Unity官方创建的默认ComputeShader了解Cs的基本结构和用法
@@ -153,3 +152,230 @@ fixed4 frag (v2f i) : SV_Target
 ```csharp
 computeShader.Dispatch(kernelIndex, 256 / 8, 256 / 8, 1);
 ```
+
+### UAV（Unordered Access view）
+
+通常我们Shader中使用的资源被称作为**SRV（Shader resource view）**，例如Texure2D，它是**只读**的。但是在Compute Shader中，我们往往需要对Texture进行写入的操作，因此SRV不能满足我们的需求，而应该使用一种新的类型来绑定我们的资源，即UAV。它允许来自多个线程临时的无序读/写操作，这意味着该资源类型可以由多个线程同时读/写，而不会产生内存冲突。
+
+前面我们提到了RWTexture，RWStructuredBuffer这些类型都属于UAV的数据类型，并且它们**支持在读取的同时写入**。它们只能在Fragment Shader和Compute Shader中被使用（绑定）。
+
+如果我们的RenderTexture不设置enableRandomWrite，或者我们传递一个Texture给RWTexture，那么运行时就会报错：
+
+> the texture wasn't created with the UAV usage flag set!
+
+## 理解环节
+
+通过学习以下仓库中Demo理解Cs各个模块
+[MinimalCompute](https://github.com/cinight/MinimalCompute).
+
+### Compute Texture
+
+这一章主要是学习ComputeTexture的各类用法
+
+#### FallingSand
+
+实现一个随意绘制贴图，并能够阻挡向下掉落的沙子
+
+![Alt Text](Textures/01_2_FallingSand.gif)
+
+##### 代码分析
+
+先来看Cs代码
+
+首先是只有一个核函数
+
+定义了
+贴图（输出用）
+Size：Size为C#传入Texture2D的Size
+Time：Time.time
+MousePos：由C#传入的鼠标位置，与贴图对应
+MouseMode：用来区分不同模式，由C#传入，0绘制像素，1绘制障碍，2移除障碍
+```CPP
+RWTexture2D<float4> Result;  
+int _Size;  
+float _Time;  
+float2 _MousePos;  
+int _MouseMode;
+```
+
+```
+[numthreads(8,8,1)]
+```
+
+核函数中主要分为两块逻辑：制作Pixel or 障碍 / Pixel的自由落体
+
+**制作Pixel or 障碍**
+如何获取鼠标所在Piexl？贴图的Size  x 鼠标所在的UV位置
+```CPP
+
+void MakeNewPixelObstacle(int2 id)  
+{  
+    float4 p = Result[id];  
+    if( _MouseMode == 0 && p.x == 0 && p.z == 0  ) Result[id] = float4(1,1,0,1);  
+    else if( _MouseMode == 1 ) Result[id] = float4(0,1,1,1);  
+    else if( _MouseMode == 2 && p.x == 0 ) Result[id] = float4(0,0,0,1);  
+}
+
+//make new pixel / obstacle ----------------------  
+int2 newPixelID = _MousePos*_Size;  
+if( _MouseMode != 0)  
+{  
+    //so that the brush is thicker  
+    float dist = distance(float2(id.xy),float2(newPixelID));  
+    if(dist < 2.5f) MakeNewPixelObstacle(id.xy);  
+}  
+else  
+{  
+    MakeNewPixelObstacle(newPixelID);  
+}
+```
+大致逻辑如下：
+首先是绘制像素的函数
+如果是绘制像素模式且目标像素的R值为0，A值为0才会在目标像素绘制黄色像素
+如果是绘制障碍模式，绘制青色像素，如果是移除障碍模式且R值为0（也是障碍物的颜色），会被重置为黑色
+实际执行中，通过计算目标像素和鼠标所在像素的Distance来控制笔刷大小，绘制像素模式就直接绘制即可
+
+**Pixel的自由落体**
+```CPP
+//move pixels ----------------------  
+int2 pID = id.xy;  
+float4 p = Result[pID];  
+  
+if(p.x == 1)  
+{  
+    //move down  
+    int2 direction = int2( 0 , -1 );  
+    int2 pID_new = pID+direction;//*(10*p.y);  
+    float4 p_new = GetResultPixel(pID_new);  
+  
+    //if not empty - move horizontal  
+    if(p_new.x > 0 || p_new.z > 0)  
+    {       
+	   direction = int2( sign(random(float2(pID) + _Time)-0.5f) , -1 );  
+       pID_new = pID+direction;       
+       p_new = GetResultPixel(pID_new);  
+    }  
+    //if empty - assign  
+    if(p_new.x == 0 && p_new.z == 0)  
+    {       
+	   Result[pID_new] = p;  
+       Result[pID] = float4(0,0,0,1);  
+    }
+}
+```
+大致逻辑如下：
+如果目标像素的R值为1（也就是黄色像素）进入逻辑
+给原像素的ID往下位移一个像素，再获取位移后的颜色
+如果这个颜色不为黑，就根据PID和时间水平给一个方向值，如果这个颜色为0，就将R值为1的目标像素颜色赋值到这个向下位移一个像素的ID，原ID设置为黑色
+
+自己项目里写一个类似的玩玩
+![Alt Text](Textures/GIF2024-5-519-54-10.gif)
+
+
+
+### StructuredBuffer
+
+这一张主要是学习**StructuredBuffer**的用法
+
+**RWStructuredBuffer**
+它是一个可读写的buffer，并且我们可以指定buffer中的数据类型为我们**自定义**的struct类型，不用再局限于int，float这类的基本类型
+
+先来一个简单的案例理解StructuredBuffer
+
+首先ComputeBuffer是可以单独使用在Shader当中的，可以脱离ComputeShader使用
+
+在C#中定义Struct结构体和ComputeBuffer
+```Csharp
+struct myObjectStruct  
+{  
+    public Vector3 objPosition;  
+};  
+private ComputeBuffer _computeBuffer;  
+private myObjectStruct[] _mos;
+void Start ()  
+{  
+    _noOfObj = _myObjects.Length;  
+    _mos = new myObjectStruct[_noOfObj];  
+    //Initiate buffer  
+    _computeBuffer = new ComputeBuffer(_noOfObj,12);
+}
+```
+其中count代表我们buffer中元素的数量，而stride指的是每个元素占用的空间（字节）。需要注意的是**ComputeBuffer中的stride大小必须和RWStructuredBuffer中每个元素的大小一致**。
+比如上述代码，一个Struct里有一个Vector3，等价float3，一个float占用4bytes，那就是12bytes
+
+```Csharp
+//Set buffer  
+_computeBuffer.SetData(_mos);  
+//Assign buffer to unlit shader  
+Mat.SetBuffer("myObjectBuffer", _computeBuffer);
+
+void OnDestroy()  
+{  
+    //Clean Buffer  
+    _computeBuffer.Release();  
+}
+```
+SetData往Buffer里面填充数据，SetBuffer传输到Shader里，记得最后用完需要Release()掉
+
+Shader里如何使用呢？
+```hlsl
+struct myObjectStruct  
+{  
+    float3 objPosition;  
+};  
+StructuredBuffer<myObjectStruct> myObjectBuffer;
+
+VS:
+[unroll]  
+for(int i=0; i< 2; i++) //only 2 spheres in scene  
+{  
+    dist = abs(distance(myObjectBuffer[i].objPosition, wvertex.xyz));  
+    power = 1 - clamp(dist / _EmissionDistance, 0.0f, 1.0f);  
+    o.emissionPower += power;  
+}
+```
+需要定义一个一模一样的Struct，然后在VS or FS中循环使用
+
+再来看一个带有ComputeShader的案例
+
+通过摄像机绘制Scene到RT，再把RT输入到ComputeShader中计算输出到屏幕
+先看ComputeShader
+```Csharp
+struct Particle  
+{  
+    float2 position;  
+    float direction;  
+    float intensity;  
+    float4 color;  
+};  
+RWStructuredBuffer<Particle> particleBuffer; 
+Texture2D<float4> texRef;  
+uint texSizeX;  
+uint texSizeY;
+```
+定义结构体
+定义一个只读不写Texture用于接收屏幕RT
+用于接收长宽的两个参数
+
+```Csharp
+uint2 uv = particleBuffer[id.x].position * uint2(texSizeX,texSizeY);  
+float angle = particleBuffer[id.x].direction;  
+float2 dir = float2( cos(angle) , sin(angle) );  
+float intensity = 0;
+
+for(int i=0; i<STEP; i++)  
+{  
+    uint2 nuv = uv + i * dir * 3.0f;  
+    if(nuv.x >= texSizeX || nuv.y >= texSizeY)  
+    {       
+	    break;  
+    }  
+    float4 col = texRef[nuv];  
+    float f = 1.0 - (col.r+col.g+col.b)/3.0;  
+  
+    intensity += f;
+}
+particleBuffer[id.x].intensity = intensity;  
+particleBuffer[id.x].color = texRef[uv];
+```
+核函数大概是一个类似于滤镜的算法，这个得结合最后的渲染Shader来看

@@ -6,6 +6,7 @@
       {
         "id": "a4094d56aa789ccb",
         "type": "tabs",
+        "dimension": 50,
         "children": [
           {
             "id": "0cbf582ba0d96ade",
@@ -81,7 +82,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "基础知识/Shader变体.md",
+                "file": "基础知识/Compute Shader的基础介绍与使用.md",
                 "mode": "source",
                 "source": true
               }
@@ -91,18 +92,19 @@
         "currentTab": 6
       },
       {
-        "id": "f20f891b520f46d6",
+        "id": "5a55c8cb82bd18ad",
         "type": "tabs",
+        "dimension": 50,
         "children": [
           {
-            "id": "c14293ad8b07c3d1",
+            "id": "031b8fba5234be3b",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "基础知识/Shader变体.md",
-                "mode": "source",
-                "source": false
+                "file": "基础知识/Compute Shader的基础介绍与使用.md",
+                "mode": "preview",
+                "source": true
               }
             }
           }
@@ -172,7 +174,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "基础知识/Shader变体.md",
+                "file": "基础知识/Compute Shader的基础介绍与使用.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -189,7 +191,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "基础知识/Shader变体.md",
+                "file": "基础知识/Compute Shader的基础介绍与使用.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -212,7 +214,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "基础知识/Shader变体.md"
+                "file": "基础知识/Compute Shader的基础介绍与使用.md"
               }
             }
           }
@@ -235,25 +237,28 @@
   },
   "active": "80d862306f71cf2d",
   "lastOpenFiles": [
-    "渲染问题随记.md",
     "基础知识/Shader变体.md",
-    "README.md",
     "基础知识/Compute Shader的基础介绍与使用.md",
-    "未命名",
-    "NPR/NPR - Character - 异度之刃3.md",
     "基础知识/Physically-Based Rendering 基础知识.md",
-    "NPR/NPR - Character - GBFvs.md",
-    "基础知识/Gamma与线性、HDR与LDR、Tonemapping.md",
-    "Common/Common - SpecularTint.md",
-    "Textures/20240503201830.png",
+    "Textures/GIF2024-5-519-54-10.md",
+    "Textures/GIF2024-5-519-54-10.gif",
     "Common/Common - CapsuleAO.md",
+    "Common/Common - SpecularTint.md",
+    "NPR/NPR - Character - GGS.md",
+    "NPR/NRP - Character - CommonOutline.md",
+    "NPR/NPR - Character - 异度之刃3.md",
+    "基础知识/Gamma与线性、HDR与LDR、Tonemapping.md",
+    "Textures/01_2_FallingSand.gif",
+    "渲染问题随记.md",
+    "README.md",
+    "未命名",
+    "NPR/NPR - Character - GBFvs.md",
+    "Textures/20240503201830.png",
     "基础知识",
     "PostProcessing/PostProcessing - Bloom.md",
     "Basic",
     "PostProcessing/PostProcessing - SNN Filter.md",
     "Textures/20240501230853.png",
-    "NPR/NPR - Character - GGS.md",
-    "NPR/NRP - Character - CommonOutline.md",
     "NRP - Character - CommonOutline.md",
     "NPR - Character - GGS逆向.md",
     "Textures/20240414184636.png",
@@ -262,8 +267,6 @@
     "Textures/20240416145416.png",
     "Pasted image 20240416145416.png",
     "20240416145416.png",
-    "Textures/1713091508286.jpg",
-    "Textures/20240416140645.png",
-    "Textures/20240416140626.png"
+    "Textures/1713091508286.jpg"
   ]
 }
