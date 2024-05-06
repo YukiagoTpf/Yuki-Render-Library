@@ -94,7 +94,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "基础知识/Compute Shader的基础介绍与使用.md",
+                "file": "ComputeShader/ComputeShader - Frustum Culling.md",
                 "mode": "source",
                 "source": true
               }
@@ -198,7 +198,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "基础知识/Compute Shader的基础介绍与使用.md",
+                "file": "ComputeShader/ComputeShader - Frustum Culling.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -215,7 +215,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "基础知识/Compute Shader的基础介绍与使用.md",
+                "file": "ComputeShader/ComputeShader - Frustum Culling.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -238,7 +238,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "基础知识/Compute Shader的基础介绍与使用.md"
+                "file": "ComputeShader/ComputeShader - Frustum Culling.md"
               }
             }
           }
@@ -261,8 +261,8 @@
   },
   "active": "9831e1e77e81f7c5",
   "lastOpenFiles": [
-    "ComputeShader/ComputeShader - Frustum Culling.md",
     "基础知识/Compute Shader的基础介绍与使用.md",
+    "ComputeShader/ComputeShader - Frustum Culling.md",
     "Common/Common - SpecularTint.md",
     "ComputeShader",
     "Common/Common - CapsuleAO.md",

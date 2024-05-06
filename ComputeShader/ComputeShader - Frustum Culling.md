@@ -11,7 +11,11 @@
 #### C#阶段准备数据
 为了计算物体的包围盒是否在视锥体中，需要几个数据：
 - Mesh的Local包围体八个顶点数据
-> 这个不需要传入，直接在CS中计算即可（也可以通过脚本计算传入）
+> ```Csharp
+> compute.SetVector("boundSize",boundSize);
+> float3 boundMin = float3(-boundSize.r/2, 0, -boundSize.b/2);  
+> float3 boundMax = float3(boundSize.r/2, boundSize.g, boundSize.b/2);
+> ```
 - Mesh所有实例的LocaltoWorldMatrix
 > ```Csharp
 > for (int i = 0; i < instanceCount; i++) 
