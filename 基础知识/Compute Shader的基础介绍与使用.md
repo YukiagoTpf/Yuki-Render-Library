@@ -336,7 +336,7 @@ for(int i=0; i< 2; i++) //only 2 spheres in scene
 ```
 需要定义一个一模一样的Struct，然后在VS or FS中循环使用
 
-再来看一个带有ComputeShader的案例
+**再来看一个带有ComputeShader的案例**
 
 通过摄像机绘制Scene到RT，再把RT输入到ComputeShader中计算输出到屏幕
 先看ComputeShader
@@ -378,4 +378,39 @@ for(int i=0; i<STEP; i++)
 particleBuffer[id.x].intensity = intensity;  
 particleBuffer[id.x].color = texRef[uv];
 ```
-核函数大概是一个类似于滤镜的算法，这个得结合最后的渲染Shader来看
+得结合渲染Shader来看
+
+```HLSL
+v2f vert (appdata v, uint inst : SV_InstanceID)  
+{  
+    v2f o;  
+  
+    float4 npos = v.vertex;  
+  
+    //size according to intensity  
+    float size = particleBuffer[inst].intensity;  
+    npos.x *= _SizeX * size;  
+    npos.y *= _SizeY;  
+  
+    //rotation  
+    npos.xy = Rotate(npos.xy,particleBuffer[inst].direction);  
+  
+    //center position of star  
+    float4 pos = float4(particleBuffer[inst].position * 2.0 - 1.0, 0, 1);  
+    pos.x /= _ScreenParams.x / _ScreenParams.y; //respect screen ratio  
+    npos.xy += pos;  
+    npos.z += 0.1;  
+  
+    o.position = npos;  
+    o.color = particleBuffer[inst].color;  
+    o.uv = TRANSFORM_TEX(v.uv, _BrushTex);  
+  
+    return o;  
+}
+```
+关于顶点部分理解的不是很清楚，暂时搁置
+
+开始一些实际的功能制作
+[[ComputeShader - Frustum Culling]]
+
+

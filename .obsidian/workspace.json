@@ -87,24 +87,48 @@
                 "source": true
               }
             }
-          }
-        ],
-        "currentTab": 6
-      },
-      {
-        "id": "5a55c8cb82bd18ad",
-        "type": "tabs",
-        "dimension": 50,
-        "children": [
+          },
           {
-            "id": "031b8fba5234be3b",
+            "id": "9831e1e77e81f7c5",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
                 "file": "基础知识/Compute Shader的基础介绍与使用.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": true
+              }
+            }
+          },
+          {
+            "id": "dbae62f59f1f810e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "NPR/NPR - Character - 异度之刃3.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 7
+      },
+      {
+        "id": "beff82df4489621d",
+        "type": "tabs",
+        "dimension": 50,
+        "children": [
+          {
+            "id": "d4f28cd0db0197e1",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "ComputeShader/ComputeShader - Frustum Culling.md",
+                "mode": "preview",
+                "source": false
               }
             }
           }
@@ -235,23 +259,26 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "80d862306f71cf2d",
+  "active": "9831e1e77e81f7c5",
   "lastOpenFiles": [
-    "基础知识/Shader变体.md",
+    "ComputeShader/ComputeShader - Frustum Culling.md",
     "基础知识/Compute Shader的基础介绍与使用.md",
+    "Common/Common - SpecularTint.md",
+    "ComputeShader",
+    "Common/Common - CapsuleAO.md",
+    "基础知识/Shader变体.md",
     "基础知识/Physically-Based Rendering 基础知识.md",
+    "渲染问题随记.md",
+    "NPR/NPR - Character - 异度之刃3.md",
+    "未命名.md",
+    "NPR/NPR - Character - GGS.md",
+    "Textures/GIF2024-5-619-54-34.gif",
     "Textures/GIF2024-5-519-54-10.md",
     "Textures/GIF2024-5-519-54-10.gif",
-    "Common/Common - CapsuleAO.md",
-    "Common/Common - SpecularTint.md",
-    "NPR/NPR - Character - GGS.md",
     "NPR/NRP - Character - CommonOutline.md",
-    "NPR/NPR - Character - 异度之刃3.md",
     "基础知识/Gamma与线性、HDR与LDR、Tonemapping.md",
     "Textures/01_2_FallingSand.gif",
-    "渲染问题随记.md",
     "README.md",
-    "未命名",
     "NPR/NPR - Character - GBFvs.md",
     "Textures/20240503201830.png",
     "基础知识",
@@ -266,7 +293,6 @@
     "Textures/20230128210110.png",
     "Textures/20240416145416.png",
     "Pasted image 20240416145416.png",
-    "20240416145416.png",
-    "Textures/1713091508286.jpg"
+    "20240416145416.png"
   ]
 }
